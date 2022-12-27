@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const MovieList = () => {
     const [isLoadingData, setisLoadingData] = useState(false);
     const [data, setData] = useState([]);
     const [showData, setShowData] = useState(false);
-    const colors = ['#e6f6fe', '#cdeefd', '#b3e5fc', '#9addfb', '#81d4fa', '#68cbf8', '#4fc3f7', '#35baf6', '#e6f6fe', '#cdeefd', '#b3e5fc', '#9addfb', '#81d4fa', '#68cbf8', '#4fc3f7', '#35baf6', '#e6f6fe', '#cdeefd', '#b3e5fc', '#9addfb',]
-
     useEffect(() => {
         setisLoadingData(true);
         setShowData(true)
@@ -28,13 +27,27 @@ const MovieList = () => {
                         <h1>"Loading Movies..."</h1>
                     ) : (
                         data.map((movies, i) => (
-                            <div className="container" key={i}>
-                                <p>{movies.title}</p>
-                            </div>
+                            <>
+                                <div class="card" >
+                                    <img src={'https://image.tmdb.org/t/p/w440_and_h660_face/' + movies.poster_path}
+                                        class="card-img-top" alt="img" style={{
+                                            width: '131px',
+                                            height: '131px',
+                                            marginLeft: '15px'
+                                        }} />
+                                    <div class="card-body">
+                                        <h5 class="card-title">Movie Title</h5>
+                                        <p class="card-text">{movies.title}</p>
+                                        <h5 class="card-title">Release Date</h5>
+                                        <p class="card-text">{movies.release_date}</p>
+                                        <a  class="btn btn-primary">Explore Details</a>
+                                    </div>
+                                </div>
+                            </>
                         ))
                     )
                 ) : (
-                    <div></div>
+                    <p></p>
                 )}
             </div>
         </>
