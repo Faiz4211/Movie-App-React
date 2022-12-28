@@ -53,13 +53,13 @@ const MovieList = ({ mode }) => {
                                                 color: mode === 'dark' ? 'white' : 'black'
                                             }}>Movie Title</h2>
                                             <p className="card-text" style={{
-                                                color: mode === 'dark' ? 'white' : 'black', fontSize: '20px'
+                                                color: mode === 'dark' ? 'white' : 'black', fontSize: '25px'
                                             }}>{movies.title}</p>
                                             <h2 className="card-title" style={{
                                                 color: mode === 'dark' ? 'white' : 'black'
                                             }}>Release Date</h2>
                                             <p className="card-text" style={{
-                                                color: mode === 'dark' ? 'white' : 'black', fontSize: '20px'
+                                                color: mode === 'dark' ? 'white' : 'black', fontSize: '25px'
                                             }}>{movies.release_date}</p>
                                             <Link className="btn btn-primary btn-lg" to='/MovieDetail'>Explore Details</Link>
                                         </div>
