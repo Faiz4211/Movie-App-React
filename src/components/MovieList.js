@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const MovieList = () => {
+const MovieList = ({ route }) => {
     const [isLoadingData, setisLoadingData] = useState(false);
     const [data, setData] = useState([]);
     const [showData, setShowData] = useState(false);
@@ -24,11 +24,11 @@ const MovieList = () => {
             <div className='container my-4' >
                 {showData ? (
                     isLoadingData ? (
-                        <h1 style={{ textAlign: 'center', color: '#0d6efd' }}>"Loading Movies..."</h1>
+                        <h1 style={{ color: '#0d6efd' }}>"Loading Movies..."</h1>
                     ) : (
                         data.map((movies, i) => (
                             <>
-                                <div className="card" key={i} >
+                                <div className="card" key={i} style={{ width: '300px', margin: '20px', }}>
                                     <img src={'https://image.tmdb.org/t/p/w440_and_h660_face/' + movies.poster_path}
                                         className="card-img-top" alt="img" style={{
                                             width: '131px',
