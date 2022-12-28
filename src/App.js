@@ -1,14 +1,19 @@
 import './App.css';
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import MovieList from './components/MovieList';
 import MovieDetail from './components/MovieDetail';
 
 const App = () => {
+  useEffect(() => {
+    <MovieList />
+  }, [])
+
   return (
     <>
-      <Navbar Name={'Movie Listing App'}
+      <Navbar
+        Name={'MovieApp'}
         List={'Movie List'}
         Detail={'Movies Details'}
       />
@@ -17,8 +22,6 @@ const App = () => {
         <Route path='/MovieDetail' element={<MovieDetail />} />
       </Routes>
     </>
-
-
   )
 }
 

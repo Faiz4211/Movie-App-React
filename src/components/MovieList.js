@@ -24,23 +24,24 @@ const MovieList = () => {
             <div className='container my-4' >
                 {showData ? (
                     isLoadingData ? (
-                        <h1>"Loading Movies..."</h1>
+                        <h1 style={{ textAlign: 'center', color: '#0d6efd' }}>"Loading Movies..."</h1>
                     ) : (
                         data.map((movies, i) => (
                             <>
-                                <div class="card" >
+                                <div className="card" key={i} >
                                     <img src={'https://image.tmdb.org/t/p/w440_and_h660_face/' + movies.poster_path}
-                                        class="card-img-top" alt="img" style={{
+                                        className="card-img-top" alt="img" style={{
                                             width: '131px',
                                             height: '131px',
-                                            marginLeft: '15px'
+                                            marginLeft: '15px',
+                                            marginTop: '10px'
                                         }} />
-                                    <div class="card-body">
-                                        <h5 class="card-title">Movie Title</h5>
-                                        <p class="card-text">{movies.title}</p>
-                                        <h5 class="card-title">Release Date</h5>
-                                        <p class="card-text">{movies.release_date}</p>
-                                        <a  class="btn btn-primary">Explore Details</a>
+                                    <div className="card-body" key={i}>
+                                        <h5 className="card-title">Movie Title</h5>
+                                        <p className="card-text">{movies.title}</p>
+                                        <h5 className="card-title">Release Date</h5>
+                                        <p className="card-text">{movies.release_date}</p>
+                                        <Link className="btn btn-primary" to='/MovieDetail'>Explore Details</Link>
                                     </div>
                                 </div>
                             </>
