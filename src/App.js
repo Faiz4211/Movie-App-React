@@ -1,4 +1,3 @@
-import './App.css';
 import React, { useEffect } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Navbar from './components/Navbar';
