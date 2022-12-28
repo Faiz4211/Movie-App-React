@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const MovieList = ({ route }) => {
+const MovieList = ({ mode }) => {
     const [isLoadingData, setisLoadingData] = useState(false);
     const [data, setData] = useState([]);
     const [showData, setShowData] = useState(false);
@@ -21,27 +21,48 @@ const MovieList = ({ route }) => {
     }, [])
     return (
         <>
-            <div className='container my-4' >
+            <div className='row my-4' style={{
+                color: mode === 'dark' ? 'white' : 'black',
+
+            }} >
+
+
                 {showData ? (
                     isLoadingData ? (
                         <h1 style={{ color: '#0d6efd' }}>"Loading Movies..."</h1>
                     ) : (
                         data.map((movies, i) => (
                             <>
-                                <div className="card" key={i} style={{ width: '300px', margin: '20px', }}>
-                                    <img src={'https://image.tmdb.org/t/p/w440_and_h660_face/' + movies.poster_path}
-                                        className="card-img-top" alt="img" style={{
-                                            width: '131px',
-                                            height: '131px',
-                                            marginLeft: '15px',
-                                            marginTop: '10px'
-                                        }} />
-                                    <div className="card-body" key={i}>
-                                        <h5 className="card-title">Movie Title</h5>
-                                        <p className="card-text">{movies.title}</p>
-                                        <h5 className="card-title">Release Date</h5>
-                                        <p className="card-text">{movies.release_date}</p>
-                                        <Link className="btn btn-primary" to='/MovieDetail'>Explore Details</Link>
+
+                                <div className="col-lg-4 col-md-6 col-sm-12" >
+                                    <div className="card  mx-auto shadow-sm  mb-5 bg-body rounded" key={i} style={{
+                                        width: '400px', margin: '20px',
+                                        backgroundColor: mode === 'dark' ? '#181a1c' : 'white', color: mode === 'dark' ? 'white' : 'black',
+                                    }}>
+                                        <img src={'https://image.tmdb.org/t/p/w440_and_h660_face/' + movies.poster_path}
+                                            className="card-img-top img-fluid" alt="img" style={{
+                                                // width: '131px',
+                                                // height: '131px',
+                                                // marginLeft: '15px',
+                                                // marginTop: '10px'
+                                            }} />
+                                        <div className="card-body" key={i} style={{
+                                            backgroundColor: mode === 'dark' ? '#181a1c' : 'white', color: mode === 'dark' ? 'white' : 'black'
+                                        }}>
+                                            <h2 className="card-title" style={{
+                                                color: mode === 'dark' ? 'white' : 'black'
+                                            }}>Movie Title</h2>
+                                            <p className="card-text" style={{
+                                                color: mode === 'dark' ? 'white' : 'black', fontSize: '20px'
+                                            }}>{movies.title}</p>
+                                            <h2 className="card-title" style={{
+                                                color: mode === 'dark' ? 'white' : 'black'
+                                            }}>Release Date</h2>
+                                            <p className="card-text" style={{
+                                                color: mode === 'dark' ? 'white' : 'black', fontSize: '20px'
+                                            }}>{movies.release_date}</p>
+                                            <Link className="btn btn-primary btn-lg" to='/MovieDetail'>Explore Details</Link>
+                                        </div>
                                     </div>
                                 </div>
                             </>
