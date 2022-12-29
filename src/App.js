@@ -36,8 +36,7 @@ const App = () => {
   return (
     <>
       <Navbar
-        Name={'MovieApp'}
-        List={'Movie List'}
+        Name={'MovieList'}
         Detail={'Movies Details'}
         mode={mode} toggleMode={toggleMode}
       />
