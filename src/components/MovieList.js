@@ -14,7 +14,7 @@ const MovieList = ({ mode }) => {
             .then((json) => {
                 setisLoadingData(false);
                 setData(json["results"])
-                console.log(data);
+                // console.log(data);
             })
             .catch((error) => console.log(error));
 
@@ -26,8 +26,6 @@ const MovieList = ({ mode }) => {
                     color: mode === 'dark' ? 'white' : 'black',
 
                 }} >
-
-
                     {showData ? (
                         isLoadingData ? (
                             <h1 style={{ color: '#0d6efd' }}>"Loading Movies..."</h1>
@@ -35,8 +33,8 @@ const MovieList = ({ mode }) => {
                             data.map((movies, i) => (
                                 <>
 
-                                    <div className="col-lg-3 col-md-6 col-sm-12" >
-                                        <div className="card  mx-auto shadow-sm  mb-5 bg-body rounded" key={i} style={{
+                                    <div className="col-lg-3 col-md-6 col-sm-12" key={i} >
+                                        <div className="card  mx-auto shadow-sm  mb-5 bg-body rounded" style={{
                                             margin: '20px',
                                             backgroundColor: mode === 'dark' ? '#181a1c' : 'white', color: mode === 'dark' ? 'white' : 'black',
                                         }}>
@@ -47,7 +45,7 @@ const MovieList = ({ mode }) => {
                                                     // marginLeft: '15px',
                                                     // marginTop: '10px'
                                                 }} />
-                                            <div className="card-body" key={i} style={{
+                                            <div className="card-body" style={{
                                                 backgroundColor: mode === 'dark' ? '#181a1c' : 'white', color: mode === 'dark' ? 'white' : 'black'
                                             }}>
                                                 <h3 className="card-title" style={{

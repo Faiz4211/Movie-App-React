@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import MovieList from './components/MovieList';
@@ -36,14 +36,14 @@ const App = () => {
   return (
     <>
       <Navbar
-        Name={'MovieList'}
+        List={'Movie List'}
         Detail={'Movies Details'}
         mode={mode} toggleMode={toggleMode}
       />
       <Alert alert={alert} />
       <Routes>
         <Route path='/' element={<MovieList mode={mode} />} />
-        {/* <Route path='/MovieDetail' element={<MovieDetail />} /> */}
+        <Route path='/MovieDetail' element={<MovieDetail />} />
       </Routes>
     </>
   )
