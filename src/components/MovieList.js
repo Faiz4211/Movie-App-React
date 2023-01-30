@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -5,20 +6,24 @@ const MovieList = ({ mode }) => {
     const [isLoadingData, setisLoadingData] = useState(false);
     const [data, setData] = useState([]);
     const [showData, setShowData] = useState(false);
+
     useEffect(() => {
+        getAllMovies()
+    }, [])
+
+    async function getAllMovies() {
         setisLoadingData(true);
         setShowData(true)
-        const url = "https://api.themoviedb.org/3/movie/now_playing?api_key=8ba633938500db5ea65fc2c09a31599c&language=en-US&page=1";
-        fetch(url)
-            .then((response) => response.json())
-            .then((json) => {
+        await axios.get('https://api.themoviedb.org/3/movie/now_playing?api_key=8ba633938500db5ea65fc2c09a31599c&language=en-US&page=1')
+            .then((res) => {
+                // console.log(res.data.results);
                 setisLoadingData(false);
-                setData(json["results"])
-                // console.log(data);
+                setData(res.data.results)
             })
-            .catch((error) => console.log(error));
-
-    }, [])
+            .catch((Err) => {
+                // console.log(Err)
+            })
+    }
     return (
         <>
             <div className="container">
