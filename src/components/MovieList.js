@@ -65,7 +65,12 @@ const MovieList = ({ mode }) => {
                                                 <p className="card-text" style={{
                                                     color: mode === 'dark' ? 'white' : 'black',
                                                 }}>{movies.release_date}</p>
-                                                <Link className="btn btn-primary" to='/MovieDetail'>Explore Details</Link>
+                                                <Link onClick={movies.id} className='btn btn-primary'
+                                                    to={{
+                                                        pathname: "/MovieDetail",
+                                                    }}
+                                                >Movie Details
+                                                </Link>
                                             </div>
                                         </div>
                                     </div>
